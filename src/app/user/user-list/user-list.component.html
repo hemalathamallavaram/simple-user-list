@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-sm-12 offset-lg-3">
+        <div class="card">
+          <div class="card-body">
+            <h3>{{adDetails.company}}</h3>
+            <a href="{{adDetails.url}}">{{adDetails.url}}</a>
+            <h6>{{adDetails.text}}</h6>
+          </div>
+        </div>
+      </div>
+        <div class="col-lg-6 col-sm-12 offset-lg-3">
+            <ul class="list-unstyled">
+                <li *ngFor="let user of users" class="media">
+                  <img class="mr-3" src={{user.avatar}} alt="avatar">
+                  <div class="media-body">
+                    <h5 class="mt-0 mb-1">{{user.first_name}} {{user.last_name}}</h5>
+                    <button (click)="goToDetailPage(user.id)" type="button" class="btn btn-success">View Details</button>
+                  </div>
+                </li>
+              </ul>
+        </div>
+        <div class="col-lg-6 col-sm-12 offset-lg-3">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li (click)="fetchUsers(page)" *ngFor="let page of totalPagesArray" class="page-item">
+                      <a class="page-link">{{page}}</a>
+                </li>
+                </ul>
+              </nav>
+        </div>
+      </div>
+  </div>
+
+
